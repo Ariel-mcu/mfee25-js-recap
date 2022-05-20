@@ -8,7 +8,7 @@
 </head>
 <body>
     <script>
-        
+// -----ex1--------------------------------------------------------        
         let handleAge = (age) => {
             if(age > 18) {
                 return "成人";
@@ -21,6 +21,8 @@
         let result = handleAge(10);
         console.log(result);
 
+// -----ex2--------------------------------------------------------        
+        // 1
         ((color) => {
             switch (color) {
                 case "red":
@@ -30,11 +32,44 @@
                     colorconsole.log("藍色");
                     break;
                 default:
-                    colorconsole.log("其他顏色");
-                    break;    
+                    colorconsole.log("其他顏色");   
             }
         })("pink");
-        
+        // 2
+        (function (color) {
+                switch (color) {
+                case "red":
+                    console.log("紅色");
+                    break;
+                case "blue":
+                    console.log("藍色");
+                    break;
+                default:
+                    console.log("其他顏色");
+            }
+        })("pink");
+
+// -----ex3--------------------------------------------------------        
+
+        let fibonacciGenerator = (n) => {
+            let arr = [0];
+            for (let i = 1; i < n - 1; i++) {
+                if(i >= 2){
+                    num = arr[i - 2] + arr[i - 1];
+                    arr.push(num);
+                }else{
+                    arr.push(i);
+                }
+            }
+            return arr
+        } 
+        console.log(fibonacciGenerator(1))
+        console.log(fibonacciGenerator(2))
+        console.log(fibonacciGenerator(8))
+        console.log(fibonacciGenerator(15))
+
+
+
     </script>
 </body>
 </html>
