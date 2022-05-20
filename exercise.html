@@ -26,19 +26,6 @@
         ((color) => {
             switch (color) {
                 case "red":
-                    colorconsole.log("紅色");
-                    break;
-                case "blue":
-                    colorconsole.log("藍色");
-                    break;
-                default:
-                    colorconsole.log("其他顏色");   
-            }
-        })("pink");
-        // 2
-        (function (color) {
-                switch (color) {
-                case "red":
                     console.log("紅色");
                     break;
                 case "blue":
@@ -46,8 +33,21 @@
                     break;
                 default:
                     console.log("其他顏色");
-            }
-        })("pink");
+                }
+            })("pink");
+        // 2
+        // (function (color) {
+        //         switch (color) {
+        //         case "red":
+        //             console.log("紅色");
+        //             break;
+        //         case "blue":
+        //             console.log("藍色");
+        //             break;
+        //         default:
+        //             console.log("其他顏色");
+        //     }
+        // })("pink");
 
 // -----ex3--------------------------------------------------------        
 
@@ -68,7 +68,69 @@
         console.log(fibonacciGenerator(8))
         console.log(fibonacciGenerator(15))
 
+// -----ex4--------------------------------------------------------        
 
+    let animals = [
+      { id: 'a1', en: 'cat', cn: '貓', num: 30, },
+      { id: 'a2', en: 'dog', cn: '狗', num: 10, },
+      { id: 'a3', en: 'rabbit', cn: '兔', num: 5, },
+      { id: 'a4', en: 'bear', cn: '熊', num: 15, },
+      { id: 'a5', en: 'mouse', cn: '鼠', num: 20, }
+    ];
+
+    // add size: 'small'
+    let newAnimals = animals.map((animal, index) => {
+        return {...animal, size: 'small'}
+    })
+    console.log(newAnimals)
+
+    // brar size: large
+    let bearsizeIndex = animals.findIndex((animal, index) => {
+        return animal.en === 'bear';
+    })
+    newAnimals[bearsizeIndex].size = "large";
+    console.log(newAnimals)
+
+    // 做法2
+    let largeBar = newAnimals.map((animal, index) => {
+        if(animal.cn === '熊') {
+            return { ...animal, size: 'large' }
+        }else {
+            return {...animal }
+        }
+    })
+    console.log(largeBar);
+
+    //用展開運算子在index = 2的資料後面新增一筆資料
+    // let [cat, dog, rabbit, bear, mouse] = animals;
+    // let pig = { id: 'a35', en: 'pig', cn: '豬', num: 3, size: 'medium' };
+    // animals = [cat, dog, rabbit, pig, bear, mouse];
+    // console.log(animals)
+
+    // 做法2
+    let lessThenIndex2 = newAnimals.filter((animal, i) => {
+        return i <= 2;
+    })
+    console.log(lessThenIndex2);
+
+    let moreThanIndex2 = newAnimals.filter((animal, i) => {
+        return i > 2;
+    })
+    console.log(moreThanIndex2);
+
+    let pig = { id: 'a35', en: 'pig', cn: '豬', num: 3, size: 'medium' }
+    let newAnimalsArr =[...lessThenIndex2, pig, ...moreThanIndex2]
+    console.log(newAnimalsArr);
+
+
+
+    // 找到此時數量<10的第一個動物，印出它的中文名稱
+    let findlessThan10 = newAnimals.find((animal, index) => {
+      return animal.num < 10;
+    }).cn
+    console.log(findlessThan10);
+    // 或是 console.log(findlessThan10.cn);
+   
 
     </script>
 </body>
