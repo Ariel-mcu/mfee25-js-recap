@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var 的提升
+        console.log(a); // undefined
+        var a = 1;
+        // var 被提升後，會被初始化為 undefined
+
+        // function 的提升
+        b();
+        function b() {
+            console.log('b');
+        }
+
+        // let 的提升
+        // console.log(c);Cannot access 'c' before initializationat hoisting.html:26:21
+        console.log(c); 
+        let c = 1;
+
+        var d = 10;
+        function test () {
+            console.log(d);
+            let d; // d =10 但是 let 把它蓋掉
+        }
+        test();
+
+
+    </script>
+</body>
+</html>
